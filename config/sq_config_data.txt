@@ -1,0 +1,6 @@
+SQL Server
+-------------
+
+host adress: 172.16.1.49
+host port: 3306
+		

@@ -3,4 +3,25 @@ SQL Server
 
 host adress: 172.16.1.49
 host port: 3306
+user: notizy
+pw: notizy
+
+---
+
+notizen
+
+	#	Name	Typ	Kollation	Attribute	Null	Standard	Kommentare	Extra	Aktion
+	1	id Primärschlüssel	int(11)			Nein	kein(e)		AUTO_INCREMENT	Bearbeiten Bearbeiten	Löschen Löschen	
+	2	titel	varchar(255)	utf8mb4_general_ci		Nein	kein(e)			Bearbeiten Bearbeiten	Löschen Löschen	
+	3	inhalt	varchar(255)	utf8mb4_general_ci		Nein	kein(e)			Bearbeiten Bearbeiten	Löschen Löschen	
+	4	user_id	int(11)			Nein	kein(e)			Bearbeiten Bearbeiten	Löschen Löschen	
+	5	date	date			Nein	current_timestamp()			Bearbeiten Bearbeiten	Löschen Löschen	
+
+user
+	#	Name	Typ	Kollation	Attribute	Null	Standard	Kommentare	Extra	Aktion
+	1	id Primärschlüssel	int(11)			Nein	kein(e)		AUTO_INCREMENT	Bearbeiten Bearbeiten	Löschen Löschen	
+	2	name	varchar(255)	utf8mb4_general_ci		Nein	kein(e)			Bearbeiten Bearbeiten	Löschen Löschen	
+	3	email	varchar(255)	utf8mb4_general_ci		Nein	kein(e)			Bearbeiten Bearbeiten	Löschen Löschen	
+	4	password	varchar(255)	utf8mb4_general_ci		Nein	kein(e)			Bearbeiten Bearbeiten	Löschen Löschen	
+
 		

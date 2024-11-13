@@ -1,2 +1,3 @@
-# gpb_2024_W45_B
+# Team Wir überlegen noch
+
 Übungsprojekt GPB 125-129 Blau

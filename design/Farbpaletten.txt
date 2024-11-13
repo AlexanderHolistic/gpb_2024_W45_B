@@ -2,8 +2,10 @@ Lightmode:	#A5B68D
 		#ECDFCC
 		#FCFAEE
 		#DA8359
+		https://colorhunt.co/palette/a5b68decdfccfcfaeeda8359
 
 Darkmode:	#1E201E
 		#3C3D37
 		#697565
 		#ECDFCC
+		https://colorhunt.co/palette/1e201e3c3d37697565ecdfcc

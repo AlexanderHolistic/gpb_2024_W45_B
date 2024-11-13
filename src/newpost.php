@@ -22,5 +22,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form action="add_article.php" method="post">
     <input type="text" name="title" placeholder="Title" required>
     <textarea name="content" placeholder="Content" required></textarea>
-    <button type="submit">Add Article</button>
+    <button type="submit">Add Post</button>
 </form>

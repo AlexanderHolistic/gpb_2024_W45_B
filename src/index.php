@@ -7,7 +7,12 @@ while ($notiz = $result->fetch_object()) {
     $notizen[] = $notiz;
 }
     */
-
+$notizen = array();
+$notizen[] = (object) array("id"=>0,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>1,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>2,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>3,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 ?>
 <!DOCTYPE html>
 <html lang="de">

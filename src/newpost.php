@@ -26,7 +26,7 @@ if (!isset($autor)) {
 $notizid = isset($_POST["id"]) ? $_POST["id"] : 0;
 require_once 'db.php';
 
-$result = $db->query('SELCET id,name FROM user');
+$result = $db->query('SELECT id, name FROM user;');
 while ($user = $result->fetch_object()) {
     if ($autor == $user->name) {
         $user = $user->id;
@@ -38,7 +38,7 @@ if (!isset($user)) {
     $email="anon@anon.de";
     $pass="todo";
     $stmt = $db->prepare('INSERT INTO user (name,email,password) VALUES (?,?,?);');
-    $stmt->bind_param("sss",$name, $email, $pass);
+    $stmt->bind_param("sss",$autor, $email, $pass);
     $stmt->execute();
     $user = $db->insert_id;
 }

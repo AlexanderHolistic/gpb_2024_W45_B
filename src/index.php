@@ -81,12 +81,13 @@ var_dump($notizen);
                 Neuer Beitrag
             </button>
         </div>
-        <div class="px-4 my-5 text-center">
-            <div class="row gx-5" id="cardBody">
-                
-            <!-- Hier werden die Notizen über JavaScript eingefügt -->
-
-            </div>
+        <div class="row px-4 my-5 text-center">
+        <div class="list-group col-3">
+            <a href="#" class="list-group-item list-group-item-action">Testico</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test 2</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test 3</a>
+        </div>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -121,16 +122,18 @@ var_dump($notizen);
         © 2024 Notizy. Alle Rechte vorbehalten.
     </footer>
 
+    <!-- Depracated
     <script type="module">
         import { NotizenLanding } from './notizenLanding.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             const notizen = new NotizenLanding();
             notizen.threeCards();
-        });
-    </script>
+        }); 
+    </script> -->
 
-    <!-- Füge dieses Skript am Ende des <body> hinzu -->
+
+
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;

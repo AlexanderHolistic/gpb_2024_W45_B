@@ -1,64 +1,4 @@
 @charset "UTF-8";
-:root {
-  --primary: #ECDFCC;
-  --secondary: #FCFAEE;
-  --dark: #DA8359;
-  --light: #86976e;
-}
-
-[data-bs-theme=dark] {
-  --primary: #35374B;
-  --secondary: #344955;
-  --dark: #50727B;
-  --light: #78A083;
-}
-
-body {
-  background-color: var(--primary);
-  color: var(--dark);
-}
-
-header {
-  background-color: var(--primary);
-  color: var(--dark);
-}
-
-.navbar {
-  background-color: var(--secondary);
-  color: var(--dark);
-}
-
-.nav-link {
-  color: var(--dark);
-}
-.nav-link:hover {
-  color: var(--light);
-}
-
-.card {
-  background-color: var(--secondary);
-  color: var(--light);
-}
-
-.btn {
-  background-color: var(--light);
-  color: var(--secondary);
-  border-color: var(--light);
-}
-
-.theblock {
-  color: var(--);
-}
-
-.notizy {
-  color: var(--light);
-}
-
-footer {
-  background-color: var(--secondary);
-  color: var(--dark);
-}
-
 /*!
  * Bootstrap  v5.3.3 (https://getbootstrap.com/)
  * Copyright 2011-2024 The Bootstrap Authors
@@ -12025,3 +11965,69 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+:root {
+  --primary: #ECDFCC;
+  --secondary: #FCFAEE;
+  --dark: #86976E;
+  --light: #DA8359;
+}
+
+[data-bs-theme=dark] {
+  --primary: #35374B;
+  --secondary: #344955;
+  --dark: #50727B;
+  --light: #78A083;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+header {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+.navbar {
+  background-color: var(--dark);
+  color: var(--dark);
+}
+
+.nav-link {
+  color: var(--dark);
+}
+.nav-link:hover {
+  color: var(--light);
+}
+
+.card {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
+.btn {
+  background-color: var(--light);
+  color: var(--dark);
+}
+.btn:hover {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+.theblock {
+  color: var(--light);
+}
+
+.notizy {
+  color: var(--dark);
+}
+
+.hauptInhalt {
+  background-color: var(--primary);
+}
+
+footer {
+  background-color: var(--secondary);
+  color: var(--dark);
+}/*# sourceMappingURL=main.css.map */

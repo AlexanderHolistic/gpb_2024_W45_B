@@ -21,7 +21,8 @@ $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","use
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="main.css" rel="stylesheet">
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
     
     <title>Notizy</title>
 </head>
@@ -51,62 +52,96 @@ $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","use
             <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="newpost.php">Neuer Beitrag</a>
             <a class="nav-item nav-link" href="#">Platzhalter2</a>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="btn btn-secondary ms-3">Dark Mode</button>
           </div>
         </div>
     </nav>
-
     <!-- Hauptinhalt -->
-    <div class="container my-5">
-        <h1 class="text-center">Willkommen bei Notizy</h1>
-    </div>
+    <div class="container-fluid my-auto hauptInhalt">
+        <div class="row mx-auto">
+            <div class="col-12">
+                <h1 class="text-center">Willkommen bei Notizy</h1>
+        </div>
+        <!-- Button zum Öffnen des Modals -->
+        <div class="d-grid gap-2 col-2 my-5 m-auto">
+            <button type="button" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+                Neuer Beitrag
+            </button>
+        </div>
+        <div class="px-4 my-5 text-center">
+            <div class="row gx-5" id="cardBody">
+                
+            <!-- Hier werden die Notizen über JavaScript eingefügt -->
 
-    <div class="container px-4 text-center">
-        <div class="row gx-5">
-            <!-- Erste Karte -->
-            <div class="col">
-                <div class="p-3 border bg-light rounded shadow">
-                    <div class="card justify-content-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Titel der Notiz</h5>
-                            <p class="card-text">Beispieltext für den Inhalt der Karte.</p>
-                            <a href="#" class="btn btn-primary">Weiterlesen</a>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Neue Notiz</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="notizTitel" class="form-label">Titel</label>
+                            <input type="text" class="form-control" id="notizTitel" placeholder="Titel...">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Notiz" class="form-label"></label>
+                            <textarea class="form-control" id="Notiz" rows="3"></textarea>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Zweite Karte -->
-            <div class="col">
-                <div class="p-3 border bg-light rounded shadow">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Titel der Notiz</h5>
-                            <p class="card-text">Beispieltext für den Inhalt der Karte.</p>
-                            <a href="#" class="btn btn-primary">Weiterlesen</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Dritte Karte -->
-            <div class="col">
-                <div class="p-3 border bg-light rounded shadow">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Titel der Notiz</h5>
-                            <p class="card-text">Beispieltext für den Inhalt der Karte.</p>
-                            <a href="#" class="btn btn-primary">Weiterlesen</a>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Verwerfen</button>
+                        <button type="button" class="btn btn-primary">Notiz Speichern</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
     <!-- Fußzeile -->
-    <footer class="text-center py-3 mt-auto">
+    <footer class="text-center footer fixed-bottom">
         © 2024 Notizy. Alle Rechte vorbehalten.
     </footer>
 
-   
+    <script type="module">
+        import { NotizenLanding } from './notizenLanding.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const notizen = new NotizenLanding();
+            notizen.threeCards();
+        });
+    </script>
+
+    <!-- Füge dieses Skript am Ende des <body> hinzu -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Funktion zum Wechseln des Themes
+        function toggleTheme() {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            themeToggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Event Listener für den Button
+        themeToggleBtn.addEventListener('click', toggleTheme);
+
+        // Setze das gespeicherte Theme beim Laden der Seite
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-bs-theme', savedTheme);
+            themeToggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        });
+    </script>
 </body>
 
 </html>

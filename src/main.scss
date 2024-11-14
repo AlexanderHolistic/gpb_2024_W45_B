@@ -1,8 +1,10 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 // Farben für den Light Mode
 $primary-light: #ECDFCC;
 $secondary-light: #FCFAEE;
-$light-dark: #DA8359;
-$light-light: #86976e;
+$light-dark: #86976E;
+$light-light: #DA8359;
 
 // Farben für den Dark Mode
 
@@ -40,7 +42,7 @@ header{
 }
 
 .navbar {
-    background-color: var(--secondary);
+    background-color: var(--dark);
     color: var(--dark);
 }
 
@@ -59,22 +61,28 @@ header{
 }
 
 .btn {
+  background-color: var(--light);
+  color: var(--dark);
+
+  &:hover {
     background-color: var(--light);
-    color: var(--secondary);
-    border-color: var(--light);
+    color: var(--dark);
+  }
 }
 
 .theblock {
-    color: var(--);
+    color: var(--light);
 }
 
 .notizy{
-    color: var(--light);
+    color: var(--dark);
+}
+
+.hauptInhalt{
+  background-color: var(--primary);
 }
 
 footer {
   background-color: var(--secondary);
   color: var(--dark);
 }
-
-@import "../node_modules/bootstrap/scss/bootstrap";

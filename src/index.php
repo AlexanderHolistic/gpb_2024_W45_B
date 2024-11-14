@@ -1,28 +1,28 @@
 <?php
 
 require_once "db.php";
-// $result = $db->query("SELECT 
-//     n.id AS id,
-//     n.titel AS titel,
-//     n.inhalt AS inhalt,
-//     n.date AS Datum,
-//     u.name AS username,
-// 	u.id AS user_id
-// FROM 
-//     notizen n
-// JOIN 
-//     user u ON n.user_id = u.id;");
-// $notizen = array();
-// while ($notiz = $result->fetch_object()) {
-//     $notizen[] = $notiz;
-// }
-
+$result = $db->query("SELECT 
+    n.id AS id,
+    n.titel AS titel,
+    n.inhalt AS inhalt,
+    n.date AS Datum,
+    u.name AS username,
+	u.id AS user_id
+FROM 
+    notizen n
+JOIN 
+    user u ON n.user_id = u.id;");
 $notizen = array();
-$notizen[] = (object) array("id"=>0,"titel"=>"Montags Notizen","inhalt"=>"lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, non quae dignissimos amet provident nostrum ut quos tempore atque mollitia ea modi adipisci recusandae at consequuntur pariatur praesentium facilis sed!","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>1,"titel"=>"Random Notiz","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>2,"titel"=>"Heute Gegessen","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>3,"titel"=>"Neue Spiele","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>4,"titel"=>"PHP Coding","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+while ($notiz = $result->fetch_object()) {
+    $notizen[] = $notiz;
+}
+
+// $notizen = array();
+// $notizen[] = (object) array("id"=>0,"titel"=>"Montags Notizen","inhalt"=>"lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, non quae dignissimos amet provident nostrum ut quos tempore atque mollitia ea modi adipisci recusandae at consequuntur pariatur praesentium facilis sed!","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+// $notizen[] = (object) array("id"=>1,"titel"=>"Random Notiz","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+// $notizen[] = (object) array("id"=>2,"titel"=>"Heute Gegessen","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+// $notizen[] = (object) array("id"=>3,"titel"=>"Neue Spiele","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+// $notizen[] = (object) array("id"=>4,"titel"=>"PHP Coding","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 
 ?>
 <!DOCTYPE html>
@@ -107,15 +107,15 @@ $notizen[] = (object) array("id"=>4,"titel"=>"PHP Coding","inhalt"=>"TestInhalt"
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="notizAuthor" class="form-label">Author</label>
-                                <input type="text" class="form-control" id="notizAuthor" placeholder="Author...">
+                                <input type="text" name="username" class="form-control" id="notizAuthor" placeholder="Author...">
                             </div>
                             <div class="mb-3">
                                 <label for="notizTitel" class="form-label">Titel</label>
-                                <input type="text" class="form-control" id="notizTitel" placeholder="Titel...">
+                                <input type="text" name="title" class="form-control" id="notizTitel" placeholder="Titel...">
                             </div>
                             <div class="mb-3">
                                 <label for="Notiz" class="form-label"></label>
-                                <textarea class="form-control" id="Notiz" rows="3"></textarea>
+                                <textarea class="form-control" name="inhalt" id="Notiz" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">

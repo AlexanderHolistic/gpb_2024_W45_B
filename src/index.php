@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
                     <h1 class="notizy titleshadows">Notizy <small class="theblock">Der Notizblock</small></h1>
                 </div>
                 <div class="col-sm-4">
-                    <img src="../design/logo/notizy.png" alt="Notizy Logo" height="125" width="110" class="d-inline-block p-3">
+                    <img src="notizy.png" alt="Notizy Logo" height="125" width="110" class="d-inline-block p-3">
                 </div>
             </div>
             <!-- Optional: Theme-Toggle Button -->

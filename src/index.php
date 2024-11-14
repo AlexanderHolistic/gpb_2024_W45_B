@@ -70,45 +70,47 @@ if (isset($_GET['id'])) {
 
             <!-- Button zum Öffnen des Modals -->
             <div class="d-grid gap-2 col-2 my-2 m-auto">
-                <button type="button" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+                <button type="button" class="btn btn-lg shadow" data-bs-toggle="modal" data-bs-target="#myModal">
                     Neuer Beitrag
                 </button>
             </div>
 
             <div class="container">
-                <div class="row p-4 text-center rounded shadow rowbg">
-                    <div class="list-group col-3">
+                <div class="row p-4 mx-5 text-center rounded shadow rowbg">
+                    <div class="list-group col-md-3 offset-sm-1">
                         <?php foreach ($notizen as $notiz): ?>
                             <a href="?id=<?php echo $notiz->id; ?>" class="list-group-item list-group-item-action-primary">
                                 <?php echo htmlspecialchars($notiz->titel); ?> <?php echo htmlspecialchars($notiz->Datum); ?>
                             </a>
                         <?php endforeach; ?>
                     </div>
-                    <div class="px-4 my-5 text-center col-9">
+                    <div class="px-4 my-5 text-center col-6 offset-sm-1">
                         <div class="row notizinhalt h-fit-content shadow rounded">
                             <div class="col-12">
                                 <form>
                                     <fieldset>
-                                        <div class="form-group">
+                                        <div class="form-group p-3">
                                             <label for="disabledNotiz">Notiz</label>
-                                            <textarea id="disabledNotiz" class="form-control" placeholder="Wählen Sie eine Notiz aus" rows="5" disabled><?php echo htmlspecialchars($notizInhalt ?: 'Wählen Sie eine Notiz aus.'); ?></textarea>
+                                            <textarea id="disabledNotiz" class="form-control" placeholder="Wählen Sie eine Notiz aus" rows="12" disabled><?php echo htmlspecialchars($notizInhalt ?: 'Wählen Sie eine Notiz aus.'); ?></textarea>
                                         </div>
                                     </fieldset>
                                 </form>
-                                <form>
-                                    <button id="bearbeiten" class="btn btn-lg form-control">Beitrag Bearbeiten</button>
-                                </form>
                             </div>
                         </div>
+
+                        <form class="mt-3" action="" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <button id="bearbeiten" class="btn btn-lg form-control">Beitrag Bearbeiten</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
          <!-- Modal -->
          <div class="modal fade custom-fade-color" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog shadow">
                 <div class="modal-content ">
-                    <form class="modalinhalt" action="newpost.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <form class="modalinhalt rounded" action="newpost.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                         <div class="modal-header">
                             <h5 class="modal-title" id="myModalLabel">Neue Notiz</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -138,7 +140,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <!-- Footer -->
-    <footer class="text-center py-3 mt-auto">
+    <footer class="text-center mt-5">
         © 2024 Notizy. Alle Rechte vorbehalten.
     </footer>
 
@@ -153,6 +155,16 @@ if (isset($_GET['id'])) {
 
             // Handle the "Beitrag Bearbeiten" button click
             const editNotiz = document.getElementById('bearbeiten');
+
+            const gesuchterString = "Wählen Sie eine Notiz aus.";
+            
+            if(disabledNotiz.value.includes(gesuchterString)){
+                editNotiz.style.display = "none";
+            } else {
+                editNotiz.style.display = "block";
+            }
+            
+            
             if (editNotiz && disabledNotiz) {
                 editNotiz.addEventListener('click', (e) => {
                     e.preventDefault();

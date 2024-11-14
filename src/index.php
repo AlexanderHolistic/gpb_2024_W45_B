@@ -83,10 +83,16 @@ var_dump($notizen);
         </div>
         <div class="row px-4 my-5 text-center">
         <div class="list-group col-3">
-            <a href="#" class="list-group-item list-group-item-action">Testico</a>
+            <a href="#" class="list-group-item list-group-item-action-primary">Testico</a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test</a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test 2</a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test 3</a>
+        </div>
+        <div class="px-4 my-5 text-center col-9">
+            <form>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </form>
+
         </div>
         </div>
         <!-- Modal -->

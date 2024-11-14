@@ -1,29 +1,29 @@
 <?php
 
 require_once "db.php";
-$result = $db->query("SELECT 
-    n.id AS id,
-    n.titel AS titel,
-    n.inhalt AS inhalt,
-    n.date AS Datum,
-    u.name AS username,
-	u.id AS user_id
-FROM 
-    notizen n
-JOIN 
-    user u ON n.user_id = u.id;");
+// $result = $db->query("SELECT 
+//     n.id AS id,
+//     n.titel AS titel,
+//     n.inhalt AS inhalt,
+//     n.date AS Datum,
+//     u.name AS username,
+// 	u.id AS user_id
+// FROM 
+//     notizen n
+// JOIN 
+//     user u ON n.user_id = u.id;");
+// $notizen = array();
+// while ($notiz = $result->fetch_object()) {
+//     $notizen[] = $notiz;
+// }
+
 $notizen = array();
-while ($notiz = $result->fetch_object()) {
-    $notizen[] = $notiz;
-}
-/*
-$notizen = array();
-$notizen[] = (object) array("id"=>0,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>1,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>2,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>3,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-$notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
-*/
+$notizen[] = (object) array("id"=>0,"titel"=>"Montags Notizen","inhalt"=>"lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, non quae dignissimos amet provident nostrum ut quos tempore atque mollitia ea modi adipisci recusandae at consequuntur pariatur praesentium facilis sed!","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>1,"titel"=>"Random Notiz","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>2,"titel"=>"Heute Gegessen","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>3,"titel"=>"Neue Spiele","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+$notizen[] = (object) array("id"=>4,"titel"=>"PHP Coding","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+
 var_dump($notizen);
 ?>
 <!DOCTYPE html>
@@ -53,22 +53,6 @@ var_dump($notizen);
             </div>
         </div>
     </header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="newpost.php">Neuer Beitrag</a>
-            <a class="nav-item nav-link" href="#">Platzhalter2</a>
-            <!-- Theme Toggle Button -->
-            <button id="theme-toggle" class="btn btn-secondary ms-3">Dark Mode</button>
-          </div>
-        </div>
-    </nav>
     <!-- Hauptinhalt -->
     <div class="container-fluid my-auto hauptInhalt">
         <div class="row mx-auto">
@@ -83,16 +67,28 @@ var_dump($notizen);
         </div>
         <div class="row px-4 my-5 text-center">
         <div class="list-group col-3">
-            <a href="#" class="list-group-item list-group-item-action-primary">Testico</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test 2</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Test 3</a>
+            <?php foreach ($notizen as $notiz): ?>
+                <a href="?id=<?php echo $notiz->id; ?>" class="list-group-item list-group-item-action-primary">
+                    <?php echo htmlspecialchars($notiz->titel); ?> <?php echo htmlspecialchars($notiz->Datum); ?>
+                </a>
+            <?php endforeach; ?>
         </div>
         <div class="px-4 my-5 text-center col-9">
-            <form>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </form>
-
+            <p>
+                <?php
+                    if (isset($_GET['id'])) {
+                        $id = intval($_GET['id']);
+                        foreach ($notizen as $notiz) {
+                            if ($notiz->id == $id) {
+                                echo htmlspecialchars($notiz->inhalt);
+                                break;
+                            }
+                        }
+                    } else {
+                        echo "Bitte wählen Sie eine Notiz aus der Liste aus.";
+                    }
+                ?>
+            </p>
         </div>
         </div>
         <!-- Modal -->

@@ -11970,6 +11970,7 @@ textarea.form-control-lg {
   --secondary: #FCFAEE;
   --dark: #86976E;
   --light: #DA8359;
+  --fade: rgba(244, 225, 210, 0.568);
 }
 
 [data-bs-theme=dark] {
@@ -11989,6 +11990,10 @@ header {
   color: var(--dark);
 }
 
+.titleshadows {
+  text-shadow: 2px 2px 4px var(--dark);
+}
+
 .navbar {
   background-color: var(--dark);
   color: var(--dark);
@@ -12001,14 +12006,18 @@ header {
   color: var(--light);
 }
 
-.card {
-  background-color: var(--secondary);
-  color: var(--light);
+.rowbg {
+  background-color: var(--dark);
+  color: var(--primary);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px var(--dark);
 }
 
 .btn {
   background-color: var(--light);
-  color: var(--dark);
+  color: var(--primary);
 }
 .btn:hover {
   background-color: var(--light);
@@ -12030,4 +12039,24 @@ header {
 footer {
   background-color: var(--secondary);
   color: var(--dark);
-}/*# sourceMappingURL=main.css.map */
+}
+
+.notizraum {
+  background-color: var(--light);
+  color: var(--light);
+}
+
+.notizinhalt {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+.modalinhalt {
+  background-color: var(--secondary);
+  color: var(--dark);
+  border-color: var(--dark);
+}
+
+.custom-fade-color {
+  background-color: var(--fade);
+}

@@ -5,6 +5,7 @@ $primary-light: #ECDFCC;
 $secondary-light: #FCFAEE;
 $light-dark: #86976E;
 $light-light: #DA8359;
+$fade-light: rgba(244, 225, 210, 0.568);
 
 // Farben für den Dark Mode
 
@@ -20,6 +21,7 @@ $dark-light: #78A083;
   --secondary: #{$secondary-light};
   --dark: #{$light-dark};
   --light: #{$light-light};
+  --fade: #{$fade-light};
 }
 
 // CSS Custom Properties für Dark Mode
@@ -41,6 +43,12 @@ header{
   color: var(--dark);
 }
 
+
+
+.titleshadows {
+  text-shadow: 2px 2px 4px var(--dark);
+}
+
 .navbar {
     background-color: var(--dark);
     color: var(--dark);
@@ -54,15 +62,24 @@ header{
   }
 }
 
-
-.card {
-  background-color: var(--secondary);
-  color: var(--light);
+.rowbg {
+  background-color: var(--dark);
+  color: var(--primary);
 }
+
+.text-shadow {
+  text-shadow: 2px 2px 4px var(--dark);
+}
+
+// Deprecated
+// .card {
+//   background-color: var(--secondary);
+//   color: var(--light);
+// }
 
 .btn {
   background-color: var(--light);
-  color: var(--dark);
+  color: var(--primary);
 
   &:hover {
     background-color: var(--light);
@@ -85,4 +102,27 @@ header{
 footer {
   background-color: var(--secondary);
   color: var(--dark);
+}
+
+.notizraum{
+  background-color: var(--light);
+  color: var(--light);
+}
+
+.notizinhalt{
+  // background-color: #ECDFCC;
+  // color: #86976E;
+
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+.modalinhalt{
+  background-color: var(--secondary);
+  color: var(--dark);
+  border-color: var(--dark);
+}
+
+.custom-fade-color {
+  background-color: var(--fade);
 }

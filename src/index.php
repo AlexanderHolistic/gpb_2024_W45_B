@@ -24,7 +24,6 @@ $notizen[] = (object) array("id"=>2,"titel"=>"Heute Gegessen","inhalt"=>"TestInh
 $notizen[] = (object) array("id"=>3,"titel"=>"Neue Spiele","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 $notizen[] = (object) array("id"=>4,"titel"=>"PHP Coding","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 
-var_dump($notizen);
 ?>
 <!DOCTYPE html>
 <html lang="de" data-bs-theme="light">
@@ -74,6 +73,11 @@ var_dump($notizen);
             <?php endforeach; ?>
         </div>
         <div class="px-4 my-5 text-center col-9">
+            
+        <form>
+            <button action="" class="btn btn-lg" method="post" enctype="multipart/form-data" accept-charset="UTF-8"></button>
+        </form>
+
             <p>
                 <?php
                     if (isset($_GET['id'])) {
@@ -95,24 +99,30 @@ var_dump($notizen);
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Neue Notiz</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="notizTitel" class="form-label">Titel</label>
-                            <input type="text" class="form-control" id="notizTitel" placeholder="Titel...">
+                    <form action="newpost.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel">Neue Notiz</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="mb-3">
-                            <label for="Notiz" class="form-label"></label>
-                            <textarea class="form-control" id="Notiz" rows="3"></textarea>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="notizAuthor" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="notizAuthor" placeholder="Author...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="notizTitel" class="form-label">Titel</label>
+                                <input type="text" class="form-control" id="notizTitel" placeholder="Titel...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Notiz" class="form-label"></label>
+                                <textarea class="form-control" id="Notiz" rows="3"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Verwerfen</button>
-                        <button type="button" class="btn btn-primary">Notiz Speichern</button>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Verwerfen</button>
+                            <button type="submit" class="btn btn-primary">Notiz Speichern</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

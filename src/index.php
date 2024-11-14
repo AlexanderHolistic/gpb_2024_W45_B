@@ -15,33 +15,33 @@ $notizen[] = (object) array("id"=>3,"titel"=>"Test1","inhalt"=>"TestInhalt","use
 $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 ?>
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link href="main.css" rel="stylesheet">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     
     <title>Notizy</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     <!-- Header -->
-    <header class="bg-dark">
+    <header>
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-8 mt-5">
-                    <h1 class="text-white">Notizy <small class="text-secondary">Der Notizblock</small></h1>
+                    <h1 class="notizy">Notizy <small class="theblock">Der Notizblock</small></h1>
                 </div>
                 <div class="col-sm-4"> 
-                    <img src="design/logo/notizy.png" alt="Notizy Logo" width="150" height="150" class="d-inline-block">
+                    <img src="../design/logo/notizy.png" alt="Notizy Logo" height="125" width="110" class="d-inline-block p-3">
                 </div>
             </div>
         </div>
     </header>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -64,9 +64,8 @@ $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","use
         <div class="row gx-5">
             <!-- Erste Karte -->
             <div class="col">
-                <div class="p-3 border bg-light">
+                <div class="p-3 border bg-light rounded shadow">
                     <div class="card justify-content-center">
-                        <img src="..." class="card-img-top" alt="Bild">
                         <div class="card-body">
                             <h5 class="card-title">Titel der Notiz</h5>
                             <p class="card-text">Beispieltext für den Inhalt der Karte.</p>
@@ -77,9 +76,8 @@ $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","use
             </div>
             <!-- Zweite Karte -->
             <div class="col">
-                <div class="p-3 border bg-light">
+                <div class="p-3 border bg-light rounded shadow">
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="Bild">
                         <div class="card-body">
                             <h5 class="card-title">Titel der Notiz</h5>
                             <p class="card-text">Beispieltext für den Inhalt der Karte.</p>
@@ -90,9 +88,8 @@ $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","use
             </div>
             <!-- Dritte Karte -->
             <div class="col">
-                <div class="p-3 border bg-light">
+                <div class="p-3 border bg-light rounded shadow">
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="Bild">
                         <div class="card-body">
                             <h5 class="card-title">Titel der Notiz</h5>
                             <p class="card-text">Beispieltext für den Inhalt der Karte.</p>
@@ -105,7 +102,7 @@ $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","use
     </div>
 
     <!-- Fußzeile -->
-    <footer class="bg-secondary text-white text-center py-3 mt-auto">
+    <footer class="text-center py-3 mt-auto">
         © 2024 Notizy. Alle Rechte vorbehalten.
     </footer>
 

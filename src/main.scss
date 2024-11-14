@@ -1,0 +1,80 @@
+// Farben für den Light Mode
+$primary-light: #ECDFCC;
+$secondary-light: #FCFAEE;
+$light-dark: #DA8359;
+$light-light: #86976e;
+
+// Farben für den Dark Mode
+
+// https://colorhunt.co/palette/35374b34495550727b78a083
+$primary-dark: #35374B;
+$secondary-dark: #344955;
+$dark-dark: #50727B;
+$dark-light: #78A083;
+
+// CSS Custom Properties für Light Mode
+:root {
+  --primary: #{$primary-light};
+  --secondary: #{$secondary-light};
+  --dark: #{$light-dark};
+  --light: #{$light-light};
+}
+
+// CSS Custom Properties für Dark Mode
+[data-bs-theme="dark"] {
+  --primary: #{$primary-dark};
+  --secondary: #{$secondary-dark};
+  --dark: #{$dark-dark};
+  --light: #{$dark-light};
+}
+
+// Anwendung der Farben
+body {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+header{
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+.navbar {
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+.nav-link {
+  color: var(--dark);
+
+  &:hover {
+    color: var(--light);
+  }
+}
+
+
+.card {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
+.btn {
+    background-color: var(--light);
+    color: var(--secondary);
+    border-color: var(--light);
+}
+
+.theblock {
+    color: var(--);
+}
+
+.notizy{
+    color: var(--light);
+}
+
+footer {
+  background-color: var(--secondary);
+  color: var(--dark);
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";

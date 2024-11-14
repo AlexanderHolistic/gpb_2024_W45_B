@@ -155,15 +155,19 @@ if (isset($_GET['id'])) {
 
             // Handle the "Beitrag Bearbeiten" button click
             const editNotiz = document.getElementById('bearbeiten');
-
-            const gesuchterString = "Wählen Sie eine Notiz aus.";
             
+            const gesuchterString = "Wählen Sie eine Notiz aus.";
             if(disabledNotiz.value.includes(gesuchterString)){
                 editNotiz.style.display = "none";
             } else {
                 editNotiz.style.display = "block";
             }
             
+            if(editNotiz.value == "Beitrag Bearbeiten"){
+                editNotiz.method = "";
+            } else {
+                editNotiz.method = "post";
+            }
             
             if (editNotiz && disabledNotiz) {
                 editNotiz.addEventListener('click', (e) => {

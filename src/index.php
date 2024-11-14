@@ -6,7 +6,7 @@ $result = $db->query("SELECT
     n.id AS id,
     n.titel AS titel,
     n.inhalt AS inhalt,
-    n.Datum AS Datum,
+    n.date AS Datum,
     u.name AS username,
 	u.id AS user_id
 FROM 

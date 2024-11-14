@@ -2,7 +2,7 @@
 $id=isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 require_once 'db.php';
-$stmt=$db->prepare("delete from notizen where id=?");
+$stmt=$db->prepare("DELETE FROM notizen WHERE `notizen`.`id` = ?");
 $stmt->bind_param('i',$id);
 $stmt->execute();
 

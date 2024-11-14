@@ -1,18 +1,30 @@
 <?php
-/*
+
 require_once "db.php";
-$result = $db->query("");
+$result = $db->query("SELECT 
+    n.id AS id,
+    n.titel AS titel,
+    n.inhalt AS inhalt,
+    n.date AS Datum,
+    u.name AS username,
+	u.id AS user_id
+FROM 
+    notizen n
+JOIN 
+    user u ON n.user_id = u.id;");
 $notizen = array();
 while ($notiz = $result->fetch_object()) {
     $notizen[] = $notiz;
 }
-    */
+/*
 $notizen = array();
 $notizen[] = (object) array("id"=>0,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 $notizen[] = (object) array("id"=>1,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 $notizen[] = (object) array("id"=>2,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 $notizen[] = (object) array("id"=>3,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
 $notizen[] = (object) array("id"=>4,"titel"=>"Test1","inhalt"=>"TestInhalt","user_id"=>0,"Datum"=>"00-00-00","username"=>"Hoppe");
+*/
+var_dump($notizen);
 ?>
 <!DOCTYPE html>
 <html lang="de" data-bs-theme="light">

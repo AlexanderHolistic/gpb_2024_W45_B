@@ -1,26 +1,58 @@
 <?php
-session_start();
 
-// depending on final database this needs to be chenged!
+use LDAP\Result;
+@session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-    $author_id = $_SESSION['user_id'];
+if (!isset($_POST)) {
+    header("Location:index.php");
+    exit();
+}
 
-    $stmt = $db->prepare("INSERT INTO articles (title, content, author_id) VALUES (?, ?, ?)");
-    $stmt->bind_param("ssi", $title, $content, $author_id);
+$title = isset($_POST["title"]) ? $_POST["title"] : null;
+if (!isset($title)) {
+    header("Location:index.php");
+    exit();
+}
+$content = isset($_POST["inhalt"]) ? $_POST["inhalt"] : null;
+if (!isset($content)) {
+    header("Location:index.php");
+    exit();
+}
+$autor = isset($_POST["username"]) ? $_POST["username"] : null;
+if (!isset($autor)) {
+    header("Location:index.php");
+    exit();
+}
+$notizid = isset($_POST["id"]) ? $_POST["id"] : 0;
+require_once 'db.php';
 
-    if ($stmt->execute()) {
-        header("Location: index.php");
-    } else {
-        echo "Error: " . $stmt->error;
+$result = $db->query('SELCET id,name FROM user');
+while ($user = $result->fetch_object()) {
+    if ($autor == $user->name) {
+        $user = $user->id;
+        break;
     }
 }
-?>
+$result->free();
+if (!isset($user)) {
+    $email="anon@anon.de";
+    $pass="todo";
+    $stmt = $db->prepare('INSERT INTO user (name,email,password) VALUES (?,?,?);');
+    $stmt->bind_param("sss",$name, $email, $pass);
+    $stmt->execute();
+    $user = $db->insert_id;
+}
+if ($id!=0) {
+    $stmt = $db->prepare("UPDATE notizen SET titel = ?, inhalt = ?, user_id = ? WHERE id = ?;");
+    $stmt->bind_param("ssii", $title, $content, $user,$id);
+    $stmt->execute();
+} else {
+    $stmt = $db->prepare("INSERT INTO notizen (titel, inhalt, user_id) VALUES (?, ?, ?)");
+    $stmt->bind_param("ssi", $title, $content, $user);
+    $stmt->execute();
+}
 
-<form action="add_article.php" method="post">
-    <input type="text" name="title" placeholder="Title" required>
-    <textarea name="content" placeholder="Content" required></textarea>
-    <button type="submit">Add Post</button>
-</form>
+
+header("Location:index.php");
+exit;
+?>

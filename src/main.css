@@ -11966,18 +11966,18 @@ textarea.form-control-lg {
   }
 }
 :root {
-  --primary: #ECDFCC;
-  --secondary: #FCFAEE;
-  --dark: #86976E;
-  --light: #DA8359;
+  --primary: #ffffff;
+  --secondary: #212529;
+  --dark: #6c757d;
+  --light: #0d6efd;
   --fade: rgba(244, 225, 210, 0.568);
 }
 
 [data-bs-theme=dark] {
-  --primary: #35374B;
-  --secondary: #344955;
-  --dark: #50727B;
-  --light: #78A083;
+  --primary: #1E201E;
+  --secondary: #3C3D37;
+  --dark: #697565;
+  --light: #ECDFCC;
 }
 
 body {
@@ -12059,4 +12059,4 @@ footer {
 
 .custom-fade-color {
   background-color: var(--fade);
-}
+}/*# sourceMappingURL=main.css.map */
